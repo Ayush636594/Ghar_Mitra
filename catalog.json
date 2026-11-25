@@ -1,0 +1,34 @@
+{
+ "kisan": {
+  "version": "1.0",
+  "size": 46243
+ },
+ "vyapar": {
+  "version": "1.0",
+  "size": 25402
+ },
+ "kaarigar": {
+  "version": "1.0",
+  "size": 25136
+ },
+ "naukri": {
+  "version": "1.0",
+  "size": 21534
+ },
+ "vidya": {
+  "version": "1.0",
+  "size": 19822
+ },
+ "pashu": {
+  "version": "1.0",
+  "size": 18934
+ },
+ "safar": {
+  "version": "1.0",
+  "size": 18886
+ },
+ "nivesh": {
+  "version": "1.0",
+  "size": 15906
+ }
+}
