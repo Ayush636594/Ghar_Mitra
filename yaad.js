@@ -16,6 +16,6 @@ function yaCustom(){const t=$('#yt').value.trim();if(!t)return toast('Enter a re
 function yaDone(id){const x=S.yaad.items.find(a=>a.id===id);if(!x)return;if(x.every>0){x.next+=x.every;if(x.next<=dnum(today()))x.next=dnum(today())+x.every}else S.yaad.items=S.yaad.items.filter(a=>a.id!==id);save();render();yaSync()}
 function yaDel(id){S.yaad.items=S.yaad.items.filter(y=>y.id!==id);save();render();yaSync()}
 function yaN(){const N=window.GMNotify;return N?(N.hasPermission()?'<div class="alert good">🔔 Phone notifications are on: 6 pm the day before and 9 am on the due day.</div>':'<div class="alert warn">🔔 Phone notifications are off.<div class="btns"><button class="small" onclick="GMNotify.requestPermission();setTimeout(()=>{yaSync();render()},4000)">Enable notifications</button></div></div>'):'<div class="alert info">🔔 Phone notifications need the updated GharMitra app. Until then, reminders show inside the app.</div>'}
-function yaSync(){const N=window.GMNotify;if(!N)return;try{N.cancelAll();const now=dnum(today()),at=(n,h)=>new Date(dstr(n)+'T'+h+':00:00').getTime();
- for(const x of yaList()){const k=x.k||x.id,due=now+x.d,t='⏰ '+x.t.replace(/\n/g,' ');if(x.d>=0)N.schedule(k+'_d',t,'Due today',at(due,'09'));if(x.d>=1)N.schedule(k+'_e',t,'Due tomorrow',at(due-1,'18'))}}catch(e){}}
+function yaSync(){const N=window.GMNotify;if(!N)return;try{(N.cancelPrefix?N.cancelPrefix('ya_'):N.cancelAll());const now=dnum(today()),at=(n,h)=>new Date(dstr(n)+'T'+h+':00:00').getTime();
+ for(const x of yaList()){const k=x.k||x.id,due=now+x.d,t='⏰ '+x.t.replace(/\n/g,' ');if(x.d>=0)N.schedule('ya_'+k+'_d',t,'Due today',at(due,'09'));if(x.d>=1)N.schedule('ya_'+k+'_e',t,'Due tomorrow',at(due-1,'18'))}}catch(e){}}
 setTimeout(yaSync,2000);
